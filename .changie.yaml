@@ -34,6 +34,6 @@ footerFormat: |
   {{- if eq .Custom.TYPE "FE"}}
   [FE#{{.Custom.PR}}]: https://github.com/cycloidio/youdeploy-frontend-web/pull/{{.Custom.PR}}
   {{- else}}
-  [BE#{{.Custom.PR}}]: https://github.com/cycloidio/youdeploy-http-api/issue/{{.Custom.PR}}
+  [BE#{{.Custom.PR}}]: https://github.com/cycloidio/youdeploy-http-api/pull/{{.Custom.PR}}
   {{- end}}
   {{- end}}
