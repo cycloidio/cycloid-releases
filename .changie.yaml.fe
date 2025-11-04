@@ -24,3 +24,87 @@ footerFormat: ''
 componentFormat: ""
 kindFormat:      "### **{{.Kind}}**"
 changeFormat: '- **{{.Component}}**: {{.Body}} {{- if .Custom.LINEAR }}{{- $issues := splitList "," .Custom.LINEAR }}{{- range $issues }} [{{ . | trim }}](https://linear.app/cycloid/issue/{{ . | trim }}){{- end }}{{- end }}'
+
+
+components:
+  - API Keys
+  - Authentication
+  - Budget
+  - CLI
+  - Cloud Cost Management
+  - Concourse
+  - Config Repo
+  - Credentials
+  - Dashboard
+  - Environments
+  - Events
+  - InfraImport
+  - InfraPolicies
+  - InfraView
+  - Inventory
+  - Invitations
+  - KPI
+  - Licence
+  - Logs
+  - Members
+  - Monitoring
+  - MSP
+  - Notifications
+  - Organizations
+  - Pipeline Designer
+  - Pipeline view
+  - Pipelines Overview
+  - Profile-User-SalesForce
+  - Project
+  - Roles
+  - Service Catalog
+  - StackCraft
+  - StackForms
+  - Start&Stop Env
+  - Status Page
+  - Teams
+  - TerraCost
+  - Workers
+  - Other
+
+kinds:
+  - label: ADDED
+  - label: BREAKING
+  - label: CHANGED
+  - label: DEPRECATED
+  - label: FIXED
+  - label: INTERNAL
+  - label: REMOVED
+  - label: SECURITY
+
+# --[Notes]--
+#
+# :: key & label ::
+# Doesn't print out both key and label in the cmd line
+# so you'll need to prepend the label with the key.
+#
+# :: optional ::
+# Contrary to the docs, int is not optional. So if you
+# want to make something optional, you need string.
+#
+# :: order ::
+# We cannot dictate the order for custom properties,
+# it's also not clear what logic is used to order them.
+#
+# :: DETAILS ::
+# If your command line goes funky after typing then just
+# press enter and finish writing in your IDE instead.
+custom:
+  - key: TYPE
+    type: enum
+    enumOptions:
+      - FE
+  - key: LINEAR
+    label: Linear Issue(s) - Linear issue(s) id like FE-XXX,FE-YYY
+    type: string
+  - key: BE PR
+    label: BE PR - changes to be synced with the BE when releasing
+    type: string
+  - key: DETAILS
+    label: DETAILS - for public release, should be approx 1-2 sentences (user impact), optional.
+    type: string
